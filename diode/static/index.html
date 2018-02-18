@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>二极管开关</title>
+    <style type="text/css">
+        label {
+            display: block;
+            vertical-align: middle;
+        }
+
+        label, input, select {
+            vertical-align: middle;
+        }
+
+        .mui-switch {
+            width: 200px;
+            height: 81px;
+            position: relative;
+            border: 1px solid #dfdfdf;
+            background-color: #fdfdfd;
+            box-shadow: #dfdfdf 0 0 0 0 inset;
+            border-radius: 40px;
+            background-clip: content-box;
+            display: inline-block;
+            -webkit-appearance: none;
+            user-select: none;
+            outline: none;
+        }
+
+        .mui-switch:before {
+            content: '';
+            width: 79px;
+            height: 79px;
+            position: absolute;
+            top: 0px;
+            left: 0;
+            border-radius: 40px;
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        .mui-switch:checked {
+            border-color: #64bd63;
+            box-shadow: #64bd63 0 0 0 16px inset;
+            background-color: #64bd63;
+        }
+
+        .mui-switch:checked:before {
+            left: 121px;
+        }
+
+        .mui-switch.mui-switch-animbg {
+            transition: background-color ease 0.4s;
+        }
+
+        .mui-switch.mui-switch-animbg:before {
+            transition: left 0.3s;
+        }
+
+        .mui-switch.mui-switch-animbg:checked {
+            box-shadow: #dfdfdf 0 0 0 0 inset;
+            background-color: #64bd63;
+            transition: border-color 0.4s, background-color ease 0.4s;
+        }
+
+        .mui-switch.mui-switch-animbg:checked:before {
+            transition: left 0.3s;
+        }
+
+        .mui-switch.mui-switch-anim {
+            transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s;
+        }
+
+        .mui-switch.mui-switch-anim:before {
+            transition: left 0.3s;
+        }
+
+        .mui-switch.mui-switch-anim:checked {
+            box-shadow: #64bd63 0 0 0 40px inset;
+            background-color: #64bd63;
+            transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s;
+        }
+
+        .mui-switch.mui-switch-anim:checked:before {
+            transition: left 0.3s;
+        }
+
+        /*# sourceMappingURL=mui-switch.css.map */
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
+
+        #container {
+            position: absolute;
+            top: 50%;
+            left:50%;
+            transform : translate(-50%,-50%);
+        }
+
+        #box {
+
+        }
+        label{
+            text-align: center;
+        }
+
+
+    </style>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="container">
+    <label><input class="mui-switch mui-switch-anim" id="box" type="checkbox" checked></label>
+</div>
+</body>
+<script>
+    $("#box").change(
+        function () {
+            switch_url = "on";
+            if ($(this).prop("checked")) {
+                switch_url = "on";
+            }
+            else {
+                switch_url = "off";
+            }
+            $.ajax({
+                url: switch_url, success: function (result) {
+
+                }
+            });
+        }
+    )
+</script>
+</html>
